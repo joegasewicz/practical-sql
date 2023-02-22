@@ -114,7 +114,7 @@ WHERE numeric_column = .7;
     -- time
         -- Records just the time. Requires "with time zone"
     -- interval
-        -- Holds a value expressing a unit of time.
+        -- Holds a value expressing a unit of time. Makes it really easy to make calculations with dates
 
 CREATE TABLE date_time_types (
     timestamp_column timestamp with time zone,
@@ -122,15 +122,60 @@ CREATE TABLE date_time_types (
 );
 
 INSERT INTO date_time_types
-VALUES ('2018-12-31 01:00 EST', '2 days'),
-       ('2018-12-31 01:00 -8', '1 month'),
-       ('2018-12-31 01:00 Australia/Melbourne', '1 century'),
-       (now(), '1 week');
+VALUES ('2018-12-31 01:00 EST', '2 days'), -- row #1
+       ('2018-12-31 01:00 -8', '1 month'), -- row #2
+       ('2018-12-31 01:00 Australia/Melbourne', '1 century'), -- row #3
+       (now(), '1 week'); -- row #4
 
 SELECT * FROM date_time_types;
 
--- EST - Eastern Standard Time
--- -8 - number of hours difference from Coordinated Universal Time (UTC)
+-- EST
+    -- Eastern Standard Time
+-- -8
+    -- number of hours difference from Coordinated Universal Time (UTC)
     -- UTC  - overall world time standard + UTC +/- 00:00
     -- using -8 = time zone 8 hours behind UTC (pacific time for example)
+-- Australia/Melbourne
+    -- specify the time zone e.g. Australia/Melbourne (stored in std time zone db)
+-- now()
+    -- captures the transaction time from your hardware
 
+-- Interval Data Type
+SELECT
+    timestamp_column,
+    interval_column,
+    timestamp_column - interval_column AS new_date
+FROM date_time_types;
+
+
+-- ---------------------
+-- Other Types
+-- ---------------------
+-- Boolean
+-- Geometric (pints, lines, circles, 2d objects...
+-- Network address types
+-- UUID e.g. unique key
+-- XML & JSON
+
+
+-- ---------------------
+-- Casting
+-- ---------------------
+-- CAST()
+
+SELECT timestamp_column, CAST(timestamp_column AS varchar(10))
+FROM date_time_types; -- works, converts the  timestamp into a varchar of length 10
+
+SELECT numeric_column,
+    CAST(numeric_column AS integer),
+    CAST(numeric_column AS varchar(6))
+FROM number_data_types; -- works
+
+SELECT CAST(char_column AS integer) FROM char_data_types; -- Can't convert string to integer
+
+--- Cast alternative syntax
+SELECT CAST(timestamp_column AS varchar(10))
+FROM date_time_types;
+
+SELECT timestamp_column::varchar(10)
+FROM date_time_types;
