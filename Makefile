@@ -13,3 +13,9 @@ add_csv1:
 
 add_csv2:
 	docker cp supervisor_salaries.csv practical_sql-main_db-1:/tmp
+
+add_csv3:
+	docker cp pls_fy2009_pupld09a.csv practical_sql-main_db-1:/tmp
+
+add_csv4:
+	docker cp pls_fy2014_pupld14a.csv practical_sql-main_db-1:/tmp
