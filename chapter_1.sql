@@ -1,3 +1,6 @@
+-- Chapter 1
+-- Introduction
+
 CREATE TABLE teachers(
   id bigserial,
   first_name varchar(25),

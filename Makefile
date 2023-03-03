@@ -7,8 +7,9 @@ docker-rm-volumes:
 docker-compose:
 	docker-compose up
 
+
 add_csv1:
-	docker cp us_counties.csv practical-sql-main_db-1:/tmp
+	docker cp us_counties.csv practical_sql-main_db-1:/tmp
 
 add_csv2:
-	docker cp supervisor_salaries.csv practical-sql-main_db-1:/tmp
+	docker cp supervisor_salaries.csv practical_sql-main_db-1:/tmp
