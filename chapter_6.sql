@@ -161,3 +161,4 @@ FROM employees AS emp
         ON emp.role_id = r.id
     LEFT JOIN vacations AS vac
         ON emp.id = vac.employee_id;
+
