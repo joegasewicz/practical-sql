@@ -1,6 +1,5 @@
 -- Chapter 6
--- Joining Tables in a Relationa
--- l Database
+-- Joining Tables in a Relational Database
 CREATE TABLE roles (
    id BIGSERIAL,
    name VARCHAR(30),
