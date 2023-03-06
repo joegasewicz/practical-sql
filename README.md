@@ -21,5 +21,5 @@ I have only included notes from the following chapters that I found useful:
 - Chapter 5 Basic Maths & Stats With SQL
 - Chapter 6 Joining Tables in a Relational Database
 - Chapter 8 Extracting Information By Grouping & Summarizing
-- Chapter 12 (TODO)
+- Chapter 12 Advanced Query Techniques
 - Chapter 15 (TODO)
